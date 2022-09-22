@@ -1,0 +1,57 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" [(ngModel)]="this.stud.Name"></td>
+  </tr>
+  <tr>
+    <td>Language</td>
+    <td><input type="text" [(ngModel)]="this.stud.Language"></td>
+  </tr>
+  <tr>
+    <td>English</td>
+    <td><input type="text" [(ngModel)]="this.stud.English"></td>
+  </tr>
+  <tr>
+    <td>Maths</td>
+    <td><input type="text" [(ngModel)]="this.stud.Maths"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="button" [value]="GetButtonText()" (click)="Add()"></td>
+  </tr>
+</table>
+
+<div *ngIf="this.Students.length>0">
+  <h2>
+    Students List
+  </h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Language</th>
+      <th>English</th>
+      <th>Maths</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let s of this.Students">
+      <td>{{ s.Name }}</td>
+      <td>{{ s.Language }}</td>
+      <td>{{ s.English }}</td>
+      <td>{{ s.Maths }}</td>
+      <td><input type="button" value="Edit" (click)="Edit(s)"></td>
+    </tr>
+  </table>
+
+</div>
+
+<div>
+  Cart ({{ this.Cart.length }})
+</div>
+
+<div>
+  <h1>Products</h1>
+
+  <div *ngFor="let p of Products">
+    <app-product [Prod]="p" (OnCartClicked)="AddToCart($event)"></app-product>
+  </div>
+</div>
