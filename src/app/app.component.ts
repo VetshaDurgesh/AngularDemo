@@ -11,6 +11,7 @@ export class AppComponent {
   stud: Student = new Student();
   Students: Student[] = [];
   Cart: Product[] = [];
+  Marks: Number[] = [23,45,32,67,13,46,78,82,66];
   Products: Product[] = [
     {
       Name: "Iphone 14",
